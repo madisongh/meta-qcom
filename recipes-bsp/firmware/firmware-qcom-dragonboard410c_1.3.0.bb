@@ -12,7 +12,7 @@ DEPENDS += "mtools-native"
 COMPATIBLE_MACHINE = "(dragonboard-410c)"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-S = "${WORKDIR}/linux-ubuntu-board-support-package-v1.2"
+S = "${WORKDIR}/linux-board-support-package-v1.3"
 
 python qcom_bin_do_unpack() {
     src_uri = (d.getVar('SRC_URI', True) or "").split()
@@ -75,10 +75,10 @@ do_compile() {
 
 do_install() {
     install -d  ${D}/lib/firmware/
-    rm -f ./proprietary-ubuntu/firmware.tar
-    cp -r ./proprietary-ubuntu/* ${D}/lib/firmware/
+    rm -f ./proprietary-linux/firmware.tar
+    cp -r ./proprietary-linux/* ${D}/lib/firmware/
 
-    MTOOLS_SKIP_CHECK=1 mcopy -i ./bootloaders-ubuntu/NON-HLOS.bin \
+    MTOOLS_SKIP_CHECK=1 mcopy -i ./bootloaders-linux/NON-HLOS.bin \
     ::image/modem.* ::image/mba.mbn ${D}/lib/firmware/
 
     install -d ${D}${sysconfdir}/
