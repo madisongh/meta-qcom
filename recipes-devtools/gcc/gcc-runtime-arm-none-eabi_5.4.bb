@@ -15,3 +15,5 @@ do_install_append() {
 
 PACKAGES = "${PN}-dev"
 FILES_${PN}-dev = "${libdir}/${TARGET_SYS}"
+RDEPENDS_${PN}-dev = ""
+INSANE_SKIP_${PN}-dev = "staticdev"
