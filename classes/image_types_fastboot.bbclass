@@ -3,7 +3,7 @@ inherit image_types
 IMAGE_TYPES += "fastboot simg"
 IMAGE_TYPEDEP_fastboot = "simg"
 IMAGE_DEPENDS_fastboot = "gptfdisk-native bootloader-emmc-linux virtual/bootloader zip-native"
-IMAGE_DEPENDS_simg = "android-sparseimage-tools-native"
+IMAGE_DEPENDS_simg = "android-sparseimage-tools-native e2fsprogs-native"
 
 create_simg() {
     eval local COUNT=\"0\"
